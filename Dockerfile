@@ -6,6 +6,7 @@ RUN curl -sS https://getcomposer.org/installer | php -- \
 RUN apt-get update && apt-get install -y \
         libzip-dev \
         zip \
+        git-core \
     && docker-php-ext-install zip
 
 WORKDIR /project
