@@ -11,7 +11,7 @@ RUN apt-get update && apt-get install -y \
     && docker-php-ext-install zip exif \
     && pecl install mongodb
 
-RUN composer global require hirak/prestissimo
+#RUN composer global require hirak/prestissimo
 
 WORKDIR /project
 
