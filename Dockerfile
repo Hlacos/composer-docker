@@ -7,6 +7,6 @@ RUN apt-get update && apt-get install -y \
         libzip-dev \
         zip \
         git-core \
-    && docker-php-ext-install zip
+    && docker-php-ext-install zip exif
 
 WORKDIR /project
