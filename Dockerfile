@@ -7,25 +7,15 @@ RUN apt-get update && apt-get install -y \
         libzip-dev \
         zip \
         git-core \
+	libpng-dev \
     && docker-php-ext-install mysqli pdo pdo_mysql \
     && docker-php-ext-install zip exif \
     && pecl install mongodb
 
 #RUN composer global require hirak/prestissimo
 
-RUN apt-get install -y libpng-dev
-#    libjpeg-turbo \
-#    libjpeg-turbo-dev 
-
 RUN docker-php-ext-configure gd
-#    --with-gd \
-#    --with-jpeg-dir \
-#    --with-png-dir \
-#    --with-zlib-dir
-
-#RUN apk add jpeg-dev libpng-dev \
-#    && docker-php-ext-configure gd --with-jpeg \
-#    && docker-php-ext-install -j$(nproc) gd
+RUN docker-php-ext-install -j$(nproc) gd
 
 WORKDIR /project
 
