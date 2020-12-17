@@ -13,5 +13,16 @@ RUN apt-get update && apt-get install -y \
 
 #RUN composer global require hirak/prestissimo
 
+RUN apk add --no-cache \
+    libpng-dev \
+    libjpeg-turbo \
+    libjpeg-turbo-dev 
+
+RUN docker-php-ext-configure gd \
+    --with-gd \
+    --with-jpeg-dir \
+    --with-png-dir \
+    --with-zlib-dir
+
 WORKDIR /project
 
