@@ -4,6 +4,7 @@
 
 * latest
 * 7.2
+* 7.2.1
 * 7.4
 
 ## What is Composer?
@@ -22,3 +23,7 @@ Example:
 ```console
 docker run --volume /project/path:/project hlacos/composer composer install
 ```
+
+## Changelog
+
+7.2.1: Added gd, mysql and mongo php extensions
