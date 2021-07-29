@@ -6,6 +6,14 @@ RUN curl -sS https://getcomposer.org/installer | php -- \
 RUN apt-get update && apt-get install -y \
         libzip-dev \
         zip \
-    && docker-php-ext-install zip
+        git-core \
+	libpng-dev \
+    && docker-php-ext-install mysqli pdo pdo_mysql \
+    && docker-php-ext-install zip exif \
+    && pecl install mongodb
+
+RUN apt-get install -y libfreetype6-dev libjpeg62-turbo-dev libpng-dev
+RUN docker-php-ext-configure gd
+RUN docker-php-ext-install -j$(nproc) gd
 
 WORKDIR /project
